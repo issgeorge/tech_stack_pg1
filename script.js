@@ -1,6 +1,7 @@
 const text = "Currently building my tech tool kit.";
-const speed = 50;       // typing speed
-const pause = 2000;     // pause before deleting
+const typingSpeed = 100;      // slower typing speed (ms)
+const deletingSpeed = 75;     // slower deleting speed (ms)
+const pause = 2000;           // pause before deleting (ms)
 let i = 0;
 let typing = true;
 
@@ -16,7 +17,7 @@ function typeLoop() {
         typeSound.play();
       }
       i++;
-      setTimeout(typeLoop, speed);
+      setTimeout(typeLoop, typingSpeed);
     } else {
       typing = false;
       setTimeout(typeLoop, pause);
@@ -25,7 +26,7 @@ function typeLoop() {
     if (i > 0) {
       output.innerHTML = text.substring(0, i - 1);
       i--;
-      setTimeout(typeLoop, speed / 2);
+      setTimeout(typeLoop, deletingSpeed);
     } else {
       typing = true;
       setTimeout(typeLoop, 500);
@@ -34,5 +35,5 @@ function typeLoop() {
 }
 
 window.onload = () => {
-  setTimeout(typeLoop, 800); // Delay to allow fade-in
+  setTimeout(typeLoop, 800); // fade-in delay
 };
