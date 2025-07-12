@@ -1,6 +1,6 @@
 const text = "Currently building my tech tool kit.";
 const typingSpeed = 100;      // slower typing speed (ms)
-const deletingSpeed = 75;     // slower deleting speed (ms)
+// const deletingSpeed = 75;  // not used now
 const pause = 2000;           // pause before deleting (ms)
 let i = 0;
 let typing = true;
@@ -20,6 +20,8 @@ function typeLoop() {
       setTimeout(typeLoop, typingSpeed);
     } else {
       typing = false;
+      // Commenting out the looping below disables deleting and restarting
+      /*
       setTimeout(typeLoop, pause);
     }
   } else {
@@ -30,6 +32,8 @@ function typeLoop() {
     } else {
       typing = true;
       setTimeout(typeLoop, 500);
+    }
+    */
     }
   }
 }
